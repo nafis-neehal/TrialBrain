@@ -3,7 +3,9 @@ import yaml #for reading the config file
 import pandas as pd #for data manipulation
 import logging #for logging
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Load the parameters from the config file
 with open('config.yml', 'r') as file:
@@ -218,3 +220,30 @@ def run_data_download():
         os.makedirs(save_dir)
     file_name = 'all_trials_withResults.csv'
     data_df.to_csv(f"{save_dir}/{file_name}", index=False)
+
+def data_split_train_test():
+    test_ids = pd.read_csv(f"{configs['paths']['base_path']}/{configs['paths']['data_path']['raw']}/CTRepo_IDs.csv")
+    all_trials = pd.read_csv(f"{configs['paths']['base_path']}/{configs['paths']['data_path']['raw']}/all_trials_withResults.csv")
+    train_data = all_trials[~all_trials['NCTId'].isin(test_ids['NCTId'])]
+    test_data = all_trials[all_trials['NCTId'].isin(test_ids['NCTId'])]
+    return (train_data, test_data)
+
+def push_to_hf_hub():
+    '''
+    Pushes the data to the Hugging Face Hub.
+    '''
+    from datasets import Dataset, DatasetDict
+    from huggingface_hub import login  
+
+    login(token=os.getenv('HF_TOKEN'))
+
+    train_data, test_data = data_split_train_test()
+    train_dataset = Dataset.from_pandas(train_data) 
+    test_dataset  = Dataset.from_pandas(test_data)
+
+    dataset_dict = DatasetDict({
+        'train': train_dataset,
+        'test': test_dataset
+    })
+
+    dataset_dict.push_to_hub('nafisneehal/trialbrain_baseline_features', private=True)

@@ -1,5 +1,6 @@
 #venv 
 trialbrain_venv
+.env
 
 #data
 data
