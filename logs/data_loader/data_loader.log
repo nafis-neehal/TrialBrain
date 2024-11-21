@@ -2300,3 +2300,19 @@
 30-Oct-24 18:33:50 - huggingface_hub._login - WARNING - Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
 30-Oct-24 18:35:57 - datasets - INFO - PyTorch version 2.5.1 available.
 30-Oct-24 18:35:58 - huggingface_hub._login - WARNING - Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+20-Nov-24 21:13:47 - root - ERROR - Error parsing data for study: NCT00534235: 'eligibilityCriteria'
+20-Nov-24 22:27:13 - root - ERROR - Error parsing data for study: NCT00534235: 'eligibilityCriteria'
+20-Nov-24 22:35:02 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:37:05 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:39:26 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:47:04 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:48:43 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:51:48 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:54:34 - root - ERROR - Error parsing data for study: NCT05037656: 'resultsSection'
+20-Nov-24 22:58:28 - root - INFO - Total number of trials fetched: 67636
+20-Nov-24 23:21:34 - root - INFO - Total number of trials fetched: 67636
+20-Nov-24 23:25:36 - root - INFO - Total number of trials fetched: 67636
+20-Nov-24 23:31:45 - root - INFO - Total number of trials fetched: 67636
+20-Nov-24 23:31:48 - root - INFO - Data saved to /Users/nafisneehal/Desktop/TrialBrain/TrialBrain/data/raw/baseline/all_trials_withResults.csv
+20-Nov-24 23:54:50 - root - INFO - Total number of trials fetched: 67636
+20-Nov-24 23:54:53 - root - INFO - Data saved to /Users/nafisneehal/Desktop/TrialBrain/TrialBrain/data/raw/baseline/trials_for_baseline.csv

@@ -3,14 +3,23 @@ paths:
   base_path: "/Users/nafisneehal/Desktop/TrialBrain/TrialBrain"
   data_path:
     raw: "data/raw"
+    baseline: "data/raw/baseline"
+    outcome: "data/raw/outcome"
   log_path:
     data_loader: "logs/data_loader"
   output_path: "output"
   src_path: "src"
   test_path: "tests"
 
-#Data Loading params
+#tasks
+tasks:
+  baseline_task: "baseline"
+  outcome_task: "outcome"
+
+#Data Loading params by task
 data_loader:
+  base_url: https://clinicaltrials.gov/api/v2/studies
+baseline_data_loader:
   fields:
     - NCTId
     - BriefTitle
@@ -22,5 +31,5 @@ data_loader:
     - InterventionName
     - StudyType
     - OverallStatus
-  max_size: 70000
-  base_url: https://clinicaltrials.gov/api/v2/studies
+  max_size: 400000
+  output_filename: "trials_for_baseline.csv"
