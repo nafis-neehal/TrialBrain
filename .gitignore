@@ -1,6 +1,10 @@
 #venv 
 trialbrain_venv
+
+#security
 .env
 
 #data
 data
+src/cache 
+src/chroma_db
